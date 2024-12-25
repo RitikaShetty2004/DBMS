@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producer Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: aliceblue;
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+        }
+        header {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        background-color: #99b8d7;
+        color: rgb(30, 12, 12);
+        padding: 0;
+        text-align: center;
+    }
+        
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #2980b9;
+            color: black;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Producer Page</h1>
+    </header>
+    <section>
+        <form id="producerForm" method="POST" action="producer.php">
+            <input type="hidden" id="action" name="action">
+            
+            <label for="producerId">Producer ID:</label><br>
+            <input type="text" id="producerId" name="producerId" required><br><br>
+            <label for="producerName">Producer Name:</label><br>
+            <input type="text" id="producerName" name="producerName" required><br><br>
+            <label for="produceraddress">Producer Address:</label><br>
+            <input type="text" id="produceraddress" name="produceraddress" required><br><br>
+            <label for="rawmaterial">Raw Material:</label><br>
+            <input type="text" id="rawmaterial" name="rawmaterial" required><br><br>
+            <label for="PhoneNumber">Phone Number:</label><br>
+            <input type="text" id="PhoneNumber" name="PhoneNumber" required><br><br>
+            <label for="garment_factoryID">Garment Factory ID:</label><br>
+            <input type="text" id="garment_factoryID" name="garment_factoryID" required><br><br>
+        
+            
+            <button type="button" onclick="setActionAndSubmit('save')">Save</button>
+            <button type="button" onclick="setActionAndSubmit('delete')">Delete</button>
+            <button type="button" onclick="setActionAndSubmit('update')">Update</button>
+            <button type="button" onclick="setActionAndSubmit('search')">Search</button>
+            
+            <button type="button" onclick="window.location.href='owner_choice.php'">Go Back</button>
+        </form>
+        
+        
+        
+    </section>
+    <script>
+        function setActionAndSubmit(action) {
+            document.getElementById('action').value = action;
+            document.getElementById('producerForm').submit();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garment Factory Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://t3.ftcdn.net/jpg/09/74/24/08/360_F_974240897_RPt4zSabOogm3l0mgIcHai5tvguxQN4f.jpg');
+             background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+        }
+        header {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background-color: #67a1dc;
+            color: rgb(30, 12, 12);
+            padding: 20px 0;
+            text-align: center;
+        }
+        section {
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #2980b9;
+            color: rgb(2, 2, 2);
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #d6e9f6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Garment Factory Management System</h1>
+    </header>
+    <section>
+        <button onclick="navigate('login.html')">Login</button>
+        <button onclick="navigate('about.html')">About</button>
+    </section>
+    <script>
+        function navigate(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>
