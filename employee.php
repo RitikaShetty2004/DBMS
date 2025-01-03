@@ -65,17 +65,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         phone_number='$phone_number', 
                         garment_factory_id='$garment_factory_id' 
                     WHERE employee_id='$employee_id'";
-            if ($conn->query($sql) === TRUE) {
-                echo "Employee updated successfully!";
-            } else {
-                echo "Error: " . $conn->error;
-            }
-            break;
-
-        case 'search':
-            $sql = "SELECT * FROM employee WHERE employee_id = '$employee_id'";
-            $result = $conn->query($sql);
-
+           if ($conn->query($sql) === TRUE) {
+            echo "Employee details saved successfully!<br>";
+        
+            // Fetch and display the saved employee data
+            $searchSql = "SELECT * FROM employee WHERE employee_id = '$employee_id'";
+            $result = $conn->query($searchSql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
                     echo "Employee Details:<br>";
@@ -91,6 +86,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else {
                 echo "No employee found with ID: $employee_id";
             }
+        } else {
+            if (strpos($conn->error, 'SALARY SHOULD BE LESS THAN 40000') !== false) {
+                echo "Error: Salary for 8 work hours must be less than 40,000.";
+            } elseif (strpos($conn->error, 'SALARY SHOULD NOT BE LESS THAN 40000') !== false) {
+                echo "Error: Salary for 10 work hours must not be less than 40,000.";
+            } elseif (strpos($conn->error, 'PHONE NUMBER SHOULD HAVE 10 DIGITS') !== false) {
+                echo "Error: Phone number must have exactly 10 digits.";
+            } else {
+                echo "Error: " . $conn->error;
+            }
+        }
+        
             break;
 
         default:
